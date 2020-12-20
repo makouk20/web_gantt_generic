@@ -10,7 +10,6 @@
         <rng:element name="gantt">
             <rng:attribute name="date_start"/>
             <rng:attribute name="date_stop"/>
-
             <rng:optional><rng:attribute name="class"/></rng:optional>
             <rng:optional><rng:attribute name="fields"/></rng:optional>
             <rng:optional><rng:attribute name="js_class"/></rng:optional>
