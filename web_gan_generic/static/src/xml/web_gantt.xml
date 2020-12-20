@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<template xml:space="preserve">
+     <t t-extend="GanttView.Row">
+         <t t-jquery="div[class='o_gantt_slots_container col']" t-operation='replace'>
+              <div class="o_gantt_slots_container col">
+            <div class="row no-gutters">
+
+                <div t-foreach="widget.slots" t-as="slot"
+                     t-attf-class="col o_gantt_cell #{slot.unavailability ? ('o_gantt_unavailability o_gantt_unavailable_' + slot.unavailability) : ''} #{slot.isToday ? 'o_gantt_today' : ''} #{slot.hasButtons ? 'o_gantt_hoverable' : ''}"
+                     t-att-data-date="slot.start.format('YYYY-MM-DD HH:mm:ss')"
+                     t-attf-style="height: #{widget.cellHeight}px;">
+
+                    <!-- plan and add buttons -->
+                    <div t-if="slot.hasButtons" class="o_gantt_cell_buttons justify-content-center">
+                        <div class="position-absolute d-flex">
+                            <i t-if="widget.options.canCreate" title="Create"
+                               t-attf-class="o_gantt_cell_add fa fa-plus d-flex flex-grow-0 flex-shrink-1 justify-content-center #{widget.options.canPlan ? 'pr-1' : ''}"/>
+                            <i t-if="widget.options.canPlan" title="Plan existing"
+                               class="o_gantt_cell_plan fa fa-search-plus d-flex flex-grow-0 flex-shrink-1 justify-content-center"/>
+                        </div>
+                    </div>
+
+                    <!-- pills -->
+                    <t t-foreach="slot.pills" t-as="pill">
+                        <div t-if="widget.isTotal"
+                             class="o_gantt_pill_wrapper position-absolute text-center d-flex justify-content-center"
+                             t-attf-style="width: #{pill.width}; left: #{pill.leftMargin}%;">
+                            <div t-att-data-id="pill.id"
+                                 t-attf-class="o_gantt_pill o_gantt_consolidated_pill"
+                                 t-att-title="pill.display_name"
+                                 t-att-style="'height:' + pill.totalHeight + '%;'"/>
+                            <span class="o_gantt_consolidated_pill_title position-absolute text-truncate px-1"
+                                  t-esc="pill.display_name"/>
+                        </div>
+
+                        <div t-elif="pill.consolidated"
+                             t-attf-class="o_gantt_pill_wrapper position-absolute text-center o_gantt_consolidated_wrapper #{widget.options.isGroup ? 'o_gantt_pill_wrapper_group' : ''}"
+                             t-attf-style="width: #{pill.width}; left: #{pill.leftMargin}%;">
+                            <div t-att-data-id="pill.id"
+                                 t-attf-class="o_gantt_pill o_gantt_consolidated_pill #{pill.status? 'bg-' + pill.status + ' border-' + pill.status : ''}  #{!widget.options.isGroup ? pill.decorations.join(' ') : ''}  #{'_color' in pill ? 'o_gantt_color_' + pill._color : ''} #{widget.progressField? 'o_gantt_progress': ''}"
+                                 t-att-title="pill.display_name"
+                            >
+                            </div>
+                            <span class="o_gantt_consolidated_pill_title position-relative text-truncate px-1"
+                                  t-esc="pill.display_name"/>
+                        </div>
+
+                        <div t-else=""
+                             t-attf-class="o_gantt_pill_wrapper position-absolute text-center #{widget.options.isGroup ? 'o_gantt_pill_wrapper_group' : ''}"
+                             t-attf-style="width: #{pill.width}; margin-top: #{pill.topPadding}px; left: #{pill.leftMargin}%;">
+                            <div
+                                    t-att-data-id="pill.id"
+                                    t-attf-class="o_gantt_pill position-relative #{!widget.options.isGroup ? pill.decorations.join(' ') : ''}  #{'_color' in pill ? 'o_gantt_color_' + pill._color : ''} #{widget.progressField? 'o_gantt_progress': ''}"
+                                    t-attf-style="#{widget.options.isGroup ? pill.style : ''} #{widget.progressField ? 'background-size:' + pill._progress + '% 100%;': ''}"
+                                    t-att-title="pill.display_name"
+                            >
+                                <!-- README: be careful when modifying the DOM inside the pill ; @_onMouseMove is strongly dependant of it -->
+                                <!--                                <p class="text-truncate position-relative mb-0" t-esc="pill.partner_phone"/>-->
+                                <p>
+                                    <t t-esc="pill.display_name"/>
+                                    <br/>
+
+                                    <t t-foreach="widget.fields_gant" t-as="field">
+
+                                               <span><t t-esc="pill[field]"/></span>
+                                             <br/>
+
+
+                                     </t>
+
+                                </p>
+                            </div>
+
+
+
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </div>
+         </t>
+     </t>
+
+</template>

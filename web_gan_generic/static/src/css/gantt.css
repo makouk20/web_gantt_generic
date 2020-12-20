@@ -1,0 +1,7 @@
+/* div.o_gantt_pill.position-relative.o_gantt_color_0.ui-resizable.ui-draggable.ui-draggable-handle {
+    height: auto !important;
+}*/
+
+.o_gantt_view .o_gantt_row .o_gantt_pill, .o_gantt_view .o_gantt_total_row_container .o_gantt_pill {
+     height: auto !important;
+}
