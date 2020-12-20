@@ -42,8 +42,10 @@ var Gantt = GanttModel.include({
 
       _getFields: function () {
     var self= this;
-    var array_gant_field = this.ganttData.fields_gant.split(",");
-
+    var array_gant_field = []
+    if ( this.ganttData.fields_gant !==undefined){
+     array_gant_field = this.ganttData.fields_gant.split(",");
+    }
         var fields = ['display_name', this.ganttData.dateStartField, this.ganttData.dateStopField];
         fields = fields.concat(this.ganttData.groupedBy, this.decorationFields,array_gant_field);
         if (this.progressField) {

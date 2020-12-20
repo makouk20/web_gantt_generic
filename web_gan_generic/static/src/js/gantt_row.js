@@ -6,7 +6,10 @@ var GantRow = GanttRow.include({
 
      _insertIntoSlot: function () {
         var self = this;
-        var array_gant_field = self.__parentedParent.arch.attrs.fields.split(",");
+        var array_gant_field = []
+        if  (self.__parentedParent.arch.attrs.fields !==undefined) {
+         array_gant_field = self.__parentedParent.arch.attrs.fields.split(",");
+        }
         this.fields_gant= array_gant_field
         var intervalToken = this.SCALES[self.state.scale].interval;
         var timeToken = this.SCALES[this.state.scale].time;
