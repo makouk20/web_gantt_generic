@@ -56,23 +56,15 @@
                             >
                                 <!-- README: be careful when modifying the DOM inside the pill ; @_onMouseMove is strongly dependant of it -->
                                 <!--                                <p class="text-truncate position-relative mb-0" t-esc="pill.partner_phone"/>-->
-                                <p>
-                                    <t t-esc="pill.display_name"/>
-                                    <br/>
-
+                                <p class="text-truncate position-relative mb-0">
+                                    <span class="pill_field" t-esc="pill.display_name"/>
                                     <t t-foreach="widget.fields_gant" t-as="field">
-
-                                               <span><t t-esc="pill[field]"/></span>
-                                             <br/>
-
-
+                                        <t t-if="pill[field] != false">
+                                            <span class="pill_field" t-esc="pill[field]"/>
+                                        </t>
                                      </t>
-
                                 </p>
                             </div>
-
-
-
                         </div>
                     </t>
                 </div>
@@ -80,5 +72,4 @@
         </div>
          </t>
      </t>
-
 </template>

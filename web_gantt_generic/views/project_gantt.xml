@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="view_project_task_gantt_inherit" model="ir.ui.view">
+        <field name="name">project.task.view.gantt.inherit</field>
+        <field name="model">project.task</field>
+        <field name="inherit_id" ref="project_enterprise.project_task_view_gantt"/>
+        <field name="arch" type="xml">
+            <xpath expr="//gantt" position="attributes">
+                <attribute name="fields">partner_phone,progress</attribute>
+            </xpath>
+        </field>
+    </record>
+
+     <record id="view_planning_gantt_inherit" model="ir.ui.view">
+        <field name="name">planning.slot.gantt.inherit</field>
+        <field name="model">planning.slot</field>
+        <field name="inherit_id" ref="planning.planning_view_gantt"/>
+        <field name="arch" type="xml">
+            <xpath expr="//gantt" position="attributes">
+                <attribute name="fields">allocated_hours</attribute>
+            </xpath>
+        </field>
+    </record>
+
+
+</odoo>

@@ -1,0 +1,11 @@
+
+    .o_gantt_view .o_gantt_row .o_gantt_pill, .o_gantt_view .o_gantt_total_row_container .o_gantt_pill {
+     height: auto !important;
+
+    }
+
+    .pill_field {
+
+    display:block;
+
+    }

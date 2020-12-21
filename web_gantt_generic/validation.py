@@ -14,7 +14,6 @@ _gantt_validator = None
 
 @view_validation.validate('gantt')
 def schema_gantt(arch, **kwargs):
-    print('******* ________________________________________ ***')
     """ Check the gantt view against its schema
 
     :type arch: etree._Element
@@ -22,7 +21,7 @@ def schema_gantt(arch, **kwargs):
     global _gantt_validator
 
     if _gantt_validator is None:
-        with misc.file_open(os.path.join('web_gan_generic', 'views', 'gantt.rng')) as f:
+        with misc.file_open(os.path.join('web_gantt_generic', 'views', 'gantt.rng')) as f:
             # gantt.rng needs to include common.rng from the `base/rng/` directory. The idea
             # here is to set the base url of lxml lib in order to load relative file from the
             # `base/rng` directory.

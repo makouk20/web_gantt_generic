@@ -1,4 +1,4 @@
-odoo.define('web_gan_generic.gantt_model', function (require) {
+odoo.define('web_gantt_generic.gantt_model', function (require) {
     "use strict";
 
 var GanttModel = require('web_gantt.GanttModel');

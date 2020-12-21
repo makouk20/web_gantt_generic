@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="assets_backend_inherit" name="custom barcode" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <script type="text/javascript" src="/web_gantt_generic/static/src/js/gantt_model.js"/>
+            <script type="text/javascript" src="/web_gantt_generic/static/src/js/gantt_row.js"/>
+            <script type="text/javascript" src="/web_gantt_generic/static/src/js/gantt_view.js"/>
+            <link rel="stylesheet" type="text/css" href="/web_gantt_generic/static/src/css/gantt.css"/>
+
+        </xpath>
+    </template>
+</odoo>

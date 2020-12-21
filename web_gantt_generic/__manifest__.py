@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "web_gan_generic",
+    'name': "web_gantt_generic",
     'summary': """
         This module allow you to display any field you want in the gantt view""",
     'description': """
@@ -11,7 +11,7 @@
     'version': '1.0',
     'application': True,
     # any module necessary for this one to work correctly
-    'depends': ['base', 'web_gantt', 'project_enterprise', 'web'],
+    'depends': ['base', 'web_gantt', 'project_enterprise', 'web','planning'],
     # always loaded
     'data': [
         'views/project_gantt.xml',
